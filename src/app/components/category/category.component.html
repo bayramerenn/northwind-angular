@@ -1,1 +1,15 @@
-<p>category works!</p>
+<ul class="list-group">
+  <li [class] = "getAllCategoryClass()" routerLink="products"
+  (click)="setAllCategory()"
+  >Tüm Ürünler</li>
+  <li
+    (click)="setCurrentCategory(item)"
+    routerLink="products/category/{{item.categoryId}}"
+    [class]="getCurrentCategoryClass(item)"
+    *ngFor="let item of categories"
+  >
+    {{ item.categoryName }}
+  </li>
+</ul>
+
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}}</h5>
